@@ -24,7 +24,8 @@ var app = express(); // Set up mongoose connection
 
 var mongoose = require("mongoose");
 
-var mongoDB = "mongodb+srv://cth0604:Cth5545cth.@cluster0.smh2d.mongodb.net/local_library?retryWrites=true&w=majority";
+var dev_db_url = "mongodb+srv://cth0604:Cth5545cth.@cluster0.smh2d.mongodb.net/local_library?retryWrites=true&w=majority";
+var mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true
